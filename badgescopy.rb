@@ -3,17 +3,19 @@ def badge_maker(name)
 end
 
 def batch_badge_creator(attendees)
-  attendees.collect do |name| 
-    badge_maker(name)
+  badge_messages = []
+  attendees.each do |name|
+    badge_messages << badge_maker(name)
+  end
+  return badge_messages
 end 
-end
 
 
 
 def assign_rooms(attendees)
-  
-  attendees.collect.each_with_index { |name,index| "Hello, #{name}! You'll be assigned to room #{index+1}!" }
-  
+  room_assignments = []
+  attendees.each_with_index { |name,index| room_assignments << "Hello, #{name}! You'll be assigned to room #{index+1}!" }
+  return room_assignments
 end
 
 def printer(attendees)
@@ -24,6 +26,3 @@ def printer(attendees)
     puts output
   end 
 end 
-
- 
-
